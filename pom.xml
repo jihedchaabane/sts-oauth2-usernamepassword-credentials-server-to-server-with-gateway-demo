@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.chj.gr</groupId>
-    <artifactId>authorization-server</artifactId>
+    <artifactId>sts-oauth2-usernamepassword-credentials-server-to-server-with-gateway-demo</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <name>Authorization Server</name>
     <packaging>pom</packaging>
