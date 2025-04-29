@@ -1,0 +1,1 @@
+insert into auth_user (id, login, password) values (1, 'jihed', '$2a$10$wuEyBziK3XyfoBOO3nN3g.033iP7cLmPCmgogSO6ZqRrDpYqKeH8O'); -- encoded 'password'

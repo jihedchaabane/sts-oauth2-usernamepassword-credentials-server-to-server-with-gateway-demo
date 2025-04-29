@@ -1,0 +1,28 @@
+mysql -u root -p mysql
+
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';
+SHOW GRANTS FOR 'newuser'@'localhost';
+
+quit
+
+mysql -u newuser -p user_password
+show databases;
+CREATE DATABASE mydb;
+use mydb;
+show tables;
+
+############"
+
+insert into auth_user (id, login, password) values (1, 'jihed', '$2a$10$wuEyBziK3XyfoBOO3nN3g.033iP7cLmPCmgogSO6ZqRrDpYqKeH8O'); -- encoded 'password'
+
+BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+System.out.println(encoder.encode("password"));
+
+
+############"
+# to grant access from another host, change the hostname part with the remote machine ip, for example, to grant access from a machine with ip 10.8.0.5 run:
+CREATE USER 'newuser'@'10.8.0.5' IDENTIFIED BY "user_password';
+
+# to ceate a user that can connect from any host, use the '%' wildcard as a host part:
+CREATE USER 'newuser'@'%' IDENTIFIED BY "user_password';

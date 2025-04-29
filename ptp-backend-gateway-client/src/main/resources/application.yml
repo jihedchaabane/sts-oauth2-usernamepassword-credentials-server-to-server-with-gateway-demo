@@ -1,0 +1,33 @@
+server:
+  port: 8083
+
+spring:
+  application.name: backend-gateway-client
+  cloud:
+    gateway:
+      routes:
+        - id: resources
+          uri: http://localhost:8082/messages
+          predicates:
+            Path=/messages/**
+          filters:
+            TokenRelay=
+    #inetutils:
+      #preferred-networks: 127.0.0.1
+      #default-hostname: localhost
+
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: my-provider
+            client-id: gateway-client-id
+            client-secret: my-secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8083/login/oauth2/code/{registrationId}"
+            scope: openid, message.read
+            client-name: gateway
+        provider:
+          my-provider:
+            issuer-uri: http://localhost:8081
